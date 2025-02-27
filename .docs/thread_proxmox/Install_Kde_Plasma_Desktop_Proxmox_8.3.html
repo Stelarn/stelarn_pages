@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Install KDE Plasma Desktop on Proxmox 8.3</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* Basic layout for the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a.active {
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f4f4f4;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+            border-right: 2px solid #ddd;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        /* Main content area */
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Post styling */
+        .post {
+            margin-bottom: 20px;
+        }
+        .post h2 a {
+            text-decoration: none;
+            color: #333;
+        }
+        .post p {
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>stelarn pages</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="active">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="sidebar">
+        <h1>key</h1>
+        <a href="#step0"><h4>Title, and description</h4></a>
+        <a href="#step1">Step 2: adding a user&home directory</a>
+        <a href="#step3">Step 3: Fixing Discovery</a>
+    </div>
+
+    <div class="content">
+        <section class="posts">
+            <article class="post" id="step0">
+                <h2>Install Kde Plasma Desktop Proxmox 8.3</h2>
+                <p>A guide for installing, and fixing after install critical bugs of kde plasma desktop. </p>
+            </article>
+            <article class="post" id="step1">
+                <h2>Step 2: Adding a user and home directory</h2>
+                <h1>ensure proxmox is up to date</h1>
+				<p>apt update</p>
+				<p>apt upgrade</p>
+				<h1>add a user and home directory</h1>
+				<p>useradd -m user-name-here</p>
+				<p>-m creates a home directory for the user, without it if you attempted to login there would be nothing to go to after login resulting in the login looping</p>
+				<p>if you already created a user without a home directory you can add 1 with </p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+            </article>
+            <article class="post" id="step3">
+                <h2>Step 3: Post Installation Fixes</h2>
+                <p>Once KDE Plasma is installed, you may face some issues. Here's how to fix them...</p>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 stelarn pages. All rights reserved.</p>
+    </footer>
+</body>
+</html>

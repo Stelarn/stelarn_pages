@@ -43,7 +43,7 @@ nav ul li a:hover, nav ul li a.active {
 .sidebar {
     width: 250px;
     position: fixed;
-    top: 120px;
+    top: 115px;
     left: 0;
     background-color: #1e1e1e; /* Match the color of the header */
     padding: 20px;
@@ -72,12 +72,13 @@ nav ul li a:hover, nav ul li a.active {
 /* Main content area */
 .content {
     margin-left: 290px;
-    padding: 20px;
+    padding: 16px;
 }
 
 /* Post styling */
 .threads, .posts {
     margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 .thread, .post {

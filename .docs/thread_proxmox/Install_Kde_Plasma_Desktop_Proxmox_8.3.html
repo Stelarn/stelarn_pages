@@ -95,38 +95,61 @@
         </nav>
     </header>
     
-    <div class="sidebar">
+    <div class="sidebar">                                                                                                                                                                                                                 
         <h1>key</h1>
-        <a href="#step0"><h4>Title, and description</h4></a>
-        <a href="#step1">Step 2: adding a user&home directory</a>
-        <a href="#step3">Step 3: Fixing Discovery</a>
+        <a href="#step0">Title, and Description</a>
+        <a href="#step1">Prep</a>
+        <a href="#step2">Configure desktop user</a>
+		<a href="#step3">Install desktop</a>
+		<a href="#step4">Fix discovery&.deb installers</a>
+ 		
     </div>
 
     <div class="content">
-        <section class="posts">
+        <section class="Title&Description">
             <article class="post" id="step0">
                 <h2>Install Kde Plasma Desktop Proxmox 8.3</h2>
                 <p>A guide for installing, and fixing after install critical bugs of kde plasma desktop. </p>
             </article>
             <article class="post" id="step1">
-                <h2>Step 2: Adding a user and home directory</h2>
-                <h1>ensure proxmox is up to date</h1>
-				<p>apt update</p>
-				<p>apt upgrade</p>
-				<h1>add a user and home directory</h1>
-				<p>useradd -m user-name-here</p>
-				<p>-m creates a home directory for the user, without it if you attempted to login there would be nothing to go to after login resulting in the login looping</p>
-				<p>if you already created a user without a home directory you can add 1 with </p>
+                <h2>Prep</h2>
+				<h4>Warnings</h4>
+				<p>The act of installing a desktop environment onto a operation system such as proxmox is highly irregular and surely not standard practice. </p>
 				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
+				<p>However it can have it uses. an example is the factor of not requiring another computer to access the web gui.</p>
+				<h4>run updates</h4>
+				<p>apt update (finds the latest packages)</p>
+				<p>apt upgrade -y (installs the latest packages, -y says yes for you)</p>
+				<p>(alternative) sudo apt full-upgrade -y (similer to the prevous but will replaces and remove obsolete packages)</p>
+				<p>(optional) reboot</p>
             </article>
-            <article class="post" id="step3">
-                <h2>Step 3: Post Installation Fixes</h2>
-                <p>Once KDE Plasma is installed, you may face some issues. Here's how to fix them...</p>
+            <article class="post" id="step2">
+                <h2>Configure desktop user</h2>
+				<h4>Method 1 (Create user & home directory)</h4>
+				<p>useradd -m user-name-here (-m creates a home directory for the user, without it if you attempted to login there would be nothing to go to after login resulting in the login looping)</p>
+				<p>passwd user-name-here (passwd engages password creation)</p>
+				<p>(optional)usermod -aG sudo user-name-here (gives the user sudo privileges eg:admin)</p>
+				<h4>Method 2 (Add home directory to existing user) </h4>
+				<p>it is unrecommened to use the root user as the desktop user. use method 1 if you only have root user</p>
+				<p>sudo mkdir /home/user-name-here (create the Home Directory under the users name)</p>
+				<p>sudo chown username:username /home/username (change ownership of the directory to the user)</p>
+				<p>sudo usermod -d /home/username username (assigns the home directory to the user)</p>
+				<p>sudo chmod 755 /home/username (the first number is owner second number group and last number other 7 gives the owner full permissions and 5&5 gives the groups and others read & execute</p>
+				<p>sudo mkdir /home/user-name-here (Create the Home Directory)</p>
+				<p>(optional) Check the home directory with getent passwd username</p>
+				
+            </article>
+			            <article class="post" id="step3">
+                <h2>Install desktop</h2>
+				<p>(required) [apt install kde-plasma-desktop] Minimal Plasma desktop without many KDE applications <p>
+				<p>(recommended) [apt install kde-full] Full KDE environment] includes all apps and components</p>
+				<p>(alternative) [apt install kde-standard] (less programs then kde-full)</p>
+            </article>
+			            <article class="post" id="step4">
+                <h2>Fix discovery&.deb installers</h2>
+				<p>[nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1] adds dummy interface so network manager deos'nt disable itself.</p>
+				<h4>Fix discovery without proxmox enterpise</h4>
+				<p>connect to localhost:8006 in your browser and select your node. scroll to repositories under updates disable both enterprise repositories and reload.</p>
             </article>
         </section>
     </div>

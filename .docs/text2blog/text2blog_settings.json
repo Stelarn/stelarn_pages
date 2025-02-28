@@ -1,0 +1,15 @@
+{
+  "window_bg": "#2e2e2e",
+  "text_box_bg": "#2e2e2e", 
+  "text_box_fg": "#ffffff",
+  "button_bg": "#4e4e4e",
+  "button_fg": "#ffffff",
+  "status_label_bg": "#2e2e2e",
+  "status_label_fg": "#ffffff",
+  "symbols": {
+    "main_title": "#####",
+    "section_title": "####",
+    "subsection_title": "###",
+    "subsubsection_title": "##"
+  }
+}

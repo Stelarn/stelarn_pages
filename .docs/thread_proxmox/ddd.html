@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>stelarn pages</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="active">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="sidebar">
+
+</div>
+    <div class="content">
+        <section class="Title&Description">
+                <p>import tkinter as tk</p>    <p>from tkinter import filedialog</p>    <p>import json</p>    <p>def load_config():</p>    <p>with open('config.json', 'r') as file:</p>    <p>return json.load(file)</p>    <p>def convert_text_to_html(input_text):</p>    <p>lines = input_text.split('\n')</p>    <p>content_html = []</p>    <p>sidebar_links = []</p>    <p>step_counter = 0</p>    <p>article_open = False</p>    <p>main_title = ""</p>    <p>for line in lines:</p>    <p>if line.startswith('#####'):</p>    <p>main_title = line[5:].strip()</p>    <p>elif line.startswith('####'):</p>    <p>link_text = line[4:].strip()</p>    <p>sidebar_links.append(f'<a href="#step{step_counter}">{link_text}</a>')</p>    <p>elif line.startswith('###'):</p>    <p>if article_open:</p>    <p>content_html.append('</article>')</p>    <p>article_open = True</p>    <p>content_html.append(f'<article class="post" id="step{step_counter}">')</p>    <p>content_html.append(f'    <h2>{line[3:].strip()}</h2>')</p>    <p>step_counter += 1</p>    <p>elif line.startswith('##'):</p>    <p>content_html.append(f'    <h4>{line[2:].strip()}</h4>')</p>    <p>elif line.strip():</p>    <p>content_html.append(f'    <p>{line.strip()}</p>')</p>    <p>if article_open:</p>    <p>content_html.append('</article>')</p>    <p>sidebar_html = '<div class="sidebar">\n'</p>    <p>if main_title:</p>    <p>sidebar_html += f'    <h1>{main_title}</h1>\n'</p>    <p>sidebar_html += '\n'.join(sidebar_links)</p>    <p>sidebar_html += '\n</div>'</p>    <p>full_html = f'''<!DOCTYPE html></p>    <p><html lang="en"></p>    <p><head></p>    <p><meta charset="UTF-8"></p>    <p><title>{main_title}</title></p>    <p><link rel="stylesheet" href="{config['css_path']}"></p>    <p></head></p>    <p><body></p>    <p><header></p>    <p><h1>stelarn pages</h1></p>    <p><nav></p>    <p><ul></p>    <p><li><a href="../index.html" class="active">Home</a></li></p>    <p><li><a href="../about.html">About</a></li></p>    <p><li><a href="../contact.html">Contact</a></li></p>    <p></ul></p>    <p></nav></p>    <p></header></p>    <p>{sidebar_html}</p>    <p><div class="content"></p>    <p><section class="Title&Description"></p>    <p>{''.join(content_html)}</p>    <p></section></p>    <p></div></p>    <p><footer></p>    <p><p>&copy; 2025 stelarn pages. All rights reserved.</p></p>    <p></footer></p>    <p></body></p>    <p></html>'''</p>    <p>return full_html</p>    <p>def submit_action():</p>    <p>input_text = text_box.get("1.0", tk.END)</p>    <p>html_content = convert_text_to_html(input_text)</p>    <p>save_path = filedialog.asksaveasfilename(defaultextension=".html", filetypes=[("HTML files", "*.html")])</p>    <p>if save_path:</p>    <p>with open(save_path, 'w') as file:</p>    <p>file.write(html_content)</p>    <p>status_label.config(text=f"File saved: {save_path}")</p>    <p>config = load_config()</p>    <p>root = tk.Tk()</p>    <p>root.title("Text to HTML Converter")</p>    <p># Set the window background color from config</p>    <p>root.configure(bg=config['window_bg'])</p>    <p># Create a frame to hold the text box and status label</p>    <p>frame = tk.Frame(root, bg=config['window_bg'])</p>    <p>frame.pack(fill='both', expand=True, padx=10, pady=10)</p>    <p># Create a text box with dark mode styling</p>    <p>text_box = tk.Text(frame, wrap='word', bg=config['text_bg'], fg=config['text_fg'], insertbackground='white', font=('Arial', 12))</p>    <p>text_box.pack(fill='both', expand=True, padx=5, pady=5)</p>    <p># Create a submit button with dark mode styling</p>    <p>submit_button = tk.Button(frame, text="Submit", command=submit_action, bg=config['button_bg'], fg=config['button_fg'], font=('Arial', 12))</p>    <p>submit_button.pack(pady=5)</p>    <p># Create a status label with dark mode styling</p>    <p>status_label = tk.Label(frame, text="", bg=config['status_bg'], fg=config['status_fg'], font=('Arial', 10))</p>    <p>status_label.pack(pady=5)</p>    <p>root.mainloop()</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 stelarn pages. All rights reserved.</p>
+    </footer>
+</body>
+</html>

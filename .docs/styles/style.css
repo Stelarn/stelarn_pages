@@ -1,60 +1,104 @@
+/* Basic layout for the page */
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
     padding: 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin-right: 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #e0e0e0;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Add underline to the active link */
-nav ul li a.active {
+nav ul li a:hover, nav ul li a.active {
+    color: #76c7c0; /* A subtle teal accent */
     text-decoration: underline;
 }
 
-main {
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    background-color: #1e1e1e; /* Match the color of the header */
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    border-right: 2px solid #ddd;
+    border-radius: 15px; /* Round the corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
+	margin-top: 20px; /* Create a gap between the sidebar and the top */
+	margin-right: 70x; /* Create a gap between the sidebar and the top */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #e0e0e0; /* Use light text for contrast */
+    margin-bottom: 10px;
+    border-radius: 5px; /* Round the link corners */
+}
+
+.sidebar a:hover {
+    background-color: #333; /* Darken the background on hover */
+}
+
+/* Main content area */
+.content {
+    margin-left: 290px;
     padding: 20px;
 }
 
+/* Post styling */
 .threads, .posts {
     margin-bottom: 20px;
 }
 
 .thread, .post {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
     margin-bottom: 10px;
     padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .post-content {
     margin-top: 10px;
 }
 
+/* Reply form styling */
 .reply-form {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
     padding: 15px;
+    border-radius: 8px;
 }
 
 .reply-form form {
@@ -69,4 +113,28 @@ main {
 .reply-form input, .reply-form textarea {
     padding: 10px;
     margin-top: 10px;
+    background-color: #222;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.reply-form input:focus, .reply-form textarea:focus {
+    outline: none;
+    border-color: #76c7c0;
+    box-shadow: 0px 0px 5px rgba(118, 199, 192, 0.5);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Smooth scrolling and transitions */
+* {
+    scroll-behavior: smooth;
+    transition: all 0.3s ease-in-out;
 }
